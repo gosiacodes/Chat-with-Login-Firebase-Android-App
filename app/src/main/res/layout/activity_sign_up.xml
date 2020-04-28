@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,7 +10,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:background="#7DD2F1"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
 
     <RelativeLayout
         android:id="@+id/id_title_section"
@@ -43,9 +43,9 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
     </RelativeLayout>
-    
+
     <RelativeLayout
-        android:id="@+id/id_login_section"
+        android:id="@+id/id_signup_section"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1">
@@ -76,24 +76,24 @@
                 android:inputType="textPassword"
                 android:paddingBottom="15dp"/>
             <Button
-                android:id="@+id/buttonLogin"
+                android:id="@+id/buttonSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
                 android:background="@android:color/holo_blue_bright"
                 android:textColor="#093ECF"
-                android:text="Login"
+                android:text="Sign up"
                 android:textSize="20dp"
                 android:textAllCaps="false"/>
             <TextView
-                android:id="@+id/textViewSignUp"
+                android:id="@+id/textViewLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
                 android:textSize="20dp"
                 android:textColor="@android:color/primary_text_dark_nodisable"
-                android:text="Don´t have account? Sign up"
+                android:text="Already have account? Login"
                 android:textAlignment="center"
                 android:gravity="center_horizontal" />
         </LinearLayout>
