@@ -94,6 +94,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("createUser", "createUser:success");
                             Toast.makeText(getApplicationContext(), "User registered successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent (SignUpActivity.this, ChatActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                             //FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
                         }
