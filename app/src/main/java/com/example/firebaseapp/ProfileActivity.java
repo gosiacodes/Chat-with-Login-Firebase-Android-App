@@ -33,7 +33,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final int CHOOSE_IMAGE = 101;
     EditText editTextDisplayName;
@@ -52,6 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
         editTextDisplayName = findViewById(R.id.editTextDisplayName);
         imageViewPicture = findViewById(R.id.imageViewPicture);
         progressBarPicture = findViewById(R.id.progressBarPicture);
+        findViewById(R.id.buttonGoToChat).setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -202,5 +203,14 @@ public class ProfileActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.buttonGoToChat:
+                startActivity(new Intent(this, ChatActivity.class));
+                break;
+        }
     }
 }

@@ -19,6 +19,44 @@
         android:textColor="@android:color/primary_text_dark_nodisable">
     </androidx.appcompat.widget.Toolbar>
 
+    <LinearLayout
+        android:id="@+id/id_title_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/id_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Chat Blue"
+            android:textSize="20dp"
+            android:textColor="#093ECF"
+            android:fontFamily="monospace" />
+
+        <ImageView
+            android:id="@+id/logo_picture"
+            android:src="@drawable/logochat"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="20dp" />
+
+        <Button
+            android:id="@+id/buttonGoToChat"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/holo_blue_bright"
+            android:textColor="#093ECF"
+            android:text="Go to chat"
+            android:textSize="15dp"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/id_title_section"
         android:layout_width="wrap_content"
@@ -79,7 +117,7 @@
             android:paddingBottom="15dp"
             android:textColorHint="@android:color/primary_text_dark_nodisable"/>
     </RelativeLayout>
-    
+
     <Button
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"

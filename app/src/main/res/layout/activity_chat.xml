@@ -12,16 +12,74 @@
     android:background="#7DD2F1"
     tools:context=".ChatActivity">
 
-    <Button
-        android:id="@+id/buttonLogin"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarLogOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="7dp"
-        android:background="@android:color/holo_blue_bright"
-        android:textColor="#093ECF"
-        android:text="My profile"
-        android:textSize="20dp"
-        android:textAllCaps="false"/>
+        android:background="#4867BF"
+        android:textColor="@android:color/primary_text_dark_nodisable">
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/id_title_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/id_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Chat Blue"
+            android:textSize="20dp"
+            android:textColor="#093ECF"
+            android:fontFamily="monospace" />
+
+        <ImageView
+            android:id="@+id/logo_picture"
+            android:src="@drawable/logochat"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="20dp" />
+
+        <Button
+            android:id="@+id/buttonMyProfile"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/holo_blue_bright"
+            android:textColor="#093ECF"
+            android:text="My profile"
+            android:textSize="15dp"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/id_message_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/inputTextChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write your message"
+        android:paddingBottom="15dp"
+        android:textColorHint="@android:color/primary_text_dark_nodisable"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/id_chat_section"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EDB5EAED">
+        <ListView
+            android:id="@+id/listViewChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (mAuth.getCurrentUser() != null){
             finish();
-            startActivity(new Intent (this, ProfileActivity.class));
+            startActivity(new Intent (this, ChatActivity.class));
         }
     }
 
