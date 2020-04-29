@@ -50,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 break;
 
             case R.id.textViewLogin:
+                finish();
                 startActivity(new Intent(this, MainActivity.class));
                 break;}
     }
@@ -91,17 +92,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         progressBarSignUp.setVisibility(View.GONE);
 
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d("createUser", "createUser:success");
                             Toast.makeText(getApplicationContext(), "User registered successful", Toast.LENGTH_SHORT).show();
+                            finish();
                             Intent intent = new Intent (SignUpActivity.this, ChatActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
-                            //FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
                         }
                         else {
-                            // If sign in fails, display a message to the user.
                             Log.w("createUser", "createUser:failure", task.getException());
 
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
@@ -112,8 +110,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 Toast.makeText(getApplicationContext(), task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
-
-                            //updateUI(null);
                         }
                     }
                 });

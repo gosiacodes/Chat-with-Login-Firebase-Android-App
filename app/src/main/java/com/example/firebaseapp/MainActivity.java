@@ -44,11 +44,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.textViewSignUp:
+                finish();
                 startActivity(new Intent(this, SignUpActivity.class));
                 break;
             case R.id.buttonLogin:
                 userLogin();
                 break;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (mAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent (this, ProfileActivity.class));
         }
     }
 
@@ -89,19 +100,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         progressBarSignIn.setVisibility(View.GONE);
 
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d("signInUser", "signIn:success");
+                            finish();
                             Intent intent = new Intent (MainActivity.this, ChatActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
-                            //FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w("signInUser", "signIn:failure", task.getException());
                             Toast.makeText(getApplicationContext(), task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
                         }
                     }
                 });
