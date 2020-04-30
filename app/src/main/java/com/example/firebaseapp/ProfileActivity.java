@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -41,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     Uri uriProfileImage;
     ProgressBar progressBarPicture;
     String profileImageUrl;
+    Toolbar toolbarLogOut;
 
     FirebaseAuth mAuth;
 
@@ -48,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        Log.d("lifecycle","onCreate profile invoked "+getApplicationContext());
 
         editTextDisplayName = findViewById(R.id.editTextDisplayName);
         imageViewPicture = findViewById(R.id.imageViewPicture);
@@ -56,7 +59,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         mAuth = FirebaseAuth.getInstance();
 
-        Toolbar toolbarLogOut = findViewById(R.id.toolbarLogOut);
+        toolbarLogOut = findViewById(R.id.toolbarLogOut);
         setSupportActionBar(toolbarLogOut);
 
         imageViewPicture.setOnClickListener(new View.OnClickListener() {
@@ -73,13 +76,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        //loadUserInformation();
+        loadUserInformation();
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d("lifecycle","onStart profile invoked "+getApplication());
 
         if (mAuth.getCurrentUser() == null){
             finish();
@@ -87,28 +91,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    /*
+
     private void loadUserInformation() {
         FirebaseUser user = mAuth.getCurrentUser();
-        //String photoUrl = user.getPhotoUrl().toString();
-        //String displayName = user.getDisplayName();
 
         if (user != null) {
-            if (user.getPhotoUrl() != null) {
+            // This should download image picture from server - fix it in the future.
+            /*if (user.getPhotoUrl() != null) {
                 Glide.with(this)
                         .load(user.getPhotoUrl().toString())
                         .into(imageViewPicture);
-            }
+            }**/
             if (user.getDisplayName() != null) {
                 editTextDisplayName.setText(user.getDisplayName());
             }
         }
-        else {
-            int imgCamera = R.drawable.camera;
-            imageViewPicture.setImageResource(imgCamera);
-        }
-
-    }**/
+    }
 
     private void saveUserInformation() {
         String displayName = editTextDisplayName.getText().toString();

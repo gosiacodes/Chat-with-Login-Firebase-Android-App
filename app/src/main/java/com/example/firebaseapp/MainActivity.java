@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("lifecycle","onCreate login invoked "+getApplicationContext());
 
         findViewById(R.id.textViewSignUp).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d("lifecycle","onStart login invoked "+getApplication());
 
         if (mAuth.getCurrentUser() != null){
             finish();
