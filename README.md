@@ -1,5 +1,5 @@
 # FirebaseApp
-Android app with inlogning and chat funktion.
+Android app with login and chat funktion.
 
 GUI:
 
